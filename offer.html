@@ -3,128 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offer Claimed - MOHANTY PAY PHONE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>🎁 Special Offer | Mohanty Pay Phone</title>
   <style>
-    /* Base Styles */
     body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #ffb300, #ff6f00);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       font-family: 'Poppins', sans-serif;
-      color: white;
+      background: linear-gradient(135deg, #fff3e0, #ffe0b2);
       text-align: center;
-      overflow: hidden;
+      margin: 0;
+      color: #333;
     }
 
-    .container {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(8px);
-      border-radius: 20px;
-      padding: 40px 25px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      animation: fadeIn 1s ease-in-out;
-      z-index: 2;
+    header {
+      background-color: #ff6600;
+      color: white;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
 
-    .logo {
-      width: 100px;
-      margin-bottom: 15px;
-      border-radius: 15px;
-      animation: pop 0.8s ease-out;
+    .offer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px auto;
+      max-width: 900px;
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      font-weight: 700;
+    .offer-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      width: 260px;
+      padding: 20px;
+      transition: transform 0.3s;
     }
 
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 25px;
-      font-weight: 400;
-    }
-
-    .btn {
-      background: white;
-      color: #ff6f00;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 30px;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
-      display: inline-block;
-    }
-
-    .btn:hover {
-      background: #ffe0b2;
+    .offer-card:hover {
       transform: scale(1.05);
     }
 
-    /* Confetti Animation */
-    .confetti {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: white;
-      opacity: 0.9;
-      top: 0;
-      animation: fall 3s linear infinite;
+    .offer-card h3 {
+      color: #ff6600;
+      font-size: 20px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    .offer-card p {
+      color: #444;
+      font-size: 16px;
     }
 
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    .btn {
+      background-color: #ff6600;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+      margin-top: 25px;
+      transition: 0.3s;
     }
 
-    @keyframes pop {
-      0% { transform: scale(0); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+    .btn:hover {
+      background-color: #ff8800;
+      transform: scale(1.05);
     }
 
-    /* Mobile optimization */
-    @media (max-width: 480px) {
-      h1 { font-size: 1.8rem; }
-      p { font-size: 1rem; }
+    .urgent {
+      color: red;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 20px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+
+    footer {
+      margin-top: 40px;
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://i.ibb.co/dGZt1pV/mohanty-logo.png" alt="MOHANTY PAY PHONE" class="logo">
-    <h1>🎉 Offer Claimed!</h1>
-    <p>A special offer unlocked for you.<br>
-    You earned a <strong>special gift</strong> when you buy any smartphone from <strong>MOHANTY PAY PHONE</strong>.</p>
-    <a href="https://mohantypayphone2001.github.io/" class="btn">Back to Home</a>
-  </div>
+
+  <header>🎉 Congratulations! You’ve Unlocked an Offer 🎁</header>
+
+  <section>
+    <p style="font-size: 18px; color: #444; margin: 20px;">Buy any mobile phone from <b>MOHANTY PAY PHONE</b> and claim your special reward below!</p>
+
+    <div class="offer-container" id="offerContainer"></div>
+
+    <p class="urgent">⚠️ Offer valid for the next 24 hours only! Hurry up!</p>
+
+    <a href="https://wa.me/919040404020?text=Hi%20I%20have%20unlocked%20my%20special%20offer%20and%20want%20to%20claim%20it!" class="btn">📸 Take Screenshot & Send on WhatsApp</a>
+  </section>
+
+  <footer>
+    © 2025 Mohanty Pay Phone | Show this page screenshot in-store to claim your reward.
+  </footer>
 
   <script>
-    // Confetti Effect
-    for (let i = 0; i < 70; i++) {
-      const confetti = document.createElement('div');
-      confetti.classList.add('confetti');
-      confetti.style.left = Math.random() * 100 + 'vw';
-      confetti.style.animationDuration = 2 + Math.random() * 3 + 's';
-      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
-      confetti.style.width = confetti.style.height = Math.random() * 8 + 5 + 'px';
-      document.body.appendChild(confetti);
-    }
+    const offers = [
+      { title: "🎁 Free Bluetooth Earphones", desc: "Get free high-quality Bluetooth earphones with your smartphone purchase!" },
+      { title: "💸 ₹500 Instant Discount", desc: "Save ₹500 instantly when you buy any new mobile phone." },
+      { title: "🎉 Surprise Gift Box", desc: "Claim a mystery surprise gift worth ₹499+ with every purchase!" },
+      { title: "📱 Free Tempered Glass", desc: "Get a premium tempered glass absolutely free with your new mobile." },
+      { title: "🎧 10% Off Accessories", desc: "Enjoy 10% discount on all mobile accessories with your purchase." },
+      { title: "🔋 Free Power Bank", desc: "Get a free 10,000mAh power bank on selected smartphone models." },
+      { title: "🧾 Free Screen Guard + Cover", desc: "Protect your phone with a free screen guard and cover combo." }
+    ];
+
+    // Shuffle and pick 3 random offers
+    const shuffled = offers.sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 3);
+
+    const container = document.getElementById("offerContainer");
+    selected.forEach(o => {
+      const card = document.createElement("div");
+      card.className = "offer-card";
+      card.innerHTML = `<h3>${o.title}</h3><p>${o.desc}</p>`;
+      container.appendChild(card);
+    });
   </script>
+
 </body>
 </html>
