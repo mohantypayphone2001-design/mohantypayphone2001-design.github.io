@@ -3,55 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎁 Special Offer | Mohanty Pay Phone</title>
+  <title>🎁 Exclusive Offer | Mohanty Pay Phone</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #fff3e0, #ffe0b2);
       text-align: center;
       margin: 0;
+      padding: 0;
       color: #333;
     }
 
     header {
       background-color: #ff6600;
       color: white;
-      padding: 20px;
-      font-size: 24px;
+      padding: 25px 10px;
+      font-size: 26px;
       font-weight: bold;
-      letter-spacing: 1px;
     }
 
-    .offer-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin: 30px auto;
-      max-width: 900px;
-    }
-
-    .offer-card {
+    .offer-box {
       background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      width: 260px;
-      padding: 20px;
-      transition: transform 0.3s;
+      margin: 40px auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 500px;
+      padding: 30px 20px;
+      transition: 0.3s;
+      animation: fadeIn 1.2s ease;
     }
 
-    .offer-card:hover {
-      transform: scale(1.05);
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .offer-card h3 {
+    .offer-title {
       color: #ff6600;
-      font-size: 20px;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 15px;
     }
 
-    .offer-card p {
-      color: #444;
-      font-size: 16px;
+    .offer-desc {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .urgent {
+      color: red;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 10px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
     }
 
     .btn {
@@ -60,28 +71,15 @@
       padding: 15px 30px;
       border-radius: 8px;
       text-decoration: none;
-      display: inline-block;
       font-size: 18px;
-      margin-top: 25px;
+      display: inline-block;
+      margin-top: 20px;
       transition: 0.3s;
     }
 
     .btn:hover {
       background-color: #ff8800;
       transform: scale(1.05);
-    }
-
-    .urgent {
-      color: red;
-      font-weight: bold;
-      font-size: 18px;
-      margin-top: 20px;
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      0%, 50%, 100% { opacity: 1; }
-      25%, 75% { opacity: 0; }
     }
 
     footer {
@@ -95,17 +93,16 @@
 </head>
 <body>
 
-  <header>🎉 Congratulations! You’ve Unlocked an Offer 🎁</header>
+  <header>🎉 Congratulations! You’ve Unlocked a Special Offer 🎁</header>
 
-  <section>
-    <p style="font-size: 18px; color: #444; margin: 20px;">Buy any mobile phone from <b>MOHANTY PAY PHONE</b> and claim your special reward below!</p>
+  <div class="offer-box" id="offerBox">
+    <h2 class="offer-title">Loading your offer...</h2>
+    <p class="offer-desc"></p>
+  </div>
 
-    <div class="offer-container" id="offerContainer"></div>
+  <p class="urgent">⚠️ Offer valid for the next 24 hours only! Hurry up!</p>
 
-    <p class="urgent">⚠️ Offer valid for the next 24 hours only! Hurry up!</p>
-
-    <a href="https://wa.me/919040404020?text=Hi%20I%20have%20unlocked%20my%20special%20offer%20and%20want%20to%20claim%20it!" class="btn">📸 Take Screenshot & Send on WhatsApp</a>
-  </section>
+  <a href="https://wa.me/919040404020?text=Hi%20I%20have%20unlocked%20my%20special%20offer%20and%20want%20to%20claim%20it!" class="btn">📸 Take Screenshot & Send on WhatsApp</a>
 
   <footer>
     © 2025 Mohanty Pay Phone | Show this page screenshot in-store to claim your reward.
@@ -113,26 +110,30 @@
 
   <script>
     const offers = [
-      { title: "🎁 Free Bluetooth Earphones", desc: "Get free high-quality Bluetooth earphones with your smartphone purchase!" },
-      { title: "💸 ₹500 Instant Discount", desc: "Save ₹500 instantly when you buy any new mobile phone." },
-      { title: "🎉 Surprise Gift Box", desc: "Claim a mystery surprise gift worth ₹499+ with every purchase!" },
-      { title: "📱 Free Tempered Glass", desc: "Get a premium tempered glass absolutely free with your new mobile." },
-      { title: "🎧 10% Off Accessories", desc: "Enjoy 10% discount on all mobile accessories with your purchase." },
-      { title: "🔋 Free Power Bank", desc: "Get a free 10,000mAh power bank on selected smartphone models." },
-      { title: "🧾 Free Screen Guard + Cover", desc: "Protect your phone with a free screen guard and cover combo." }
+      {
+        title: "🎁 Surprise Gift Box worth ₹4,999/-",
+        desc: "You’ve unlocked an exclusive reward! Buy any smartphone and receive a luxury surprise gift box worth ₹4,999/- absolutely free!"
+      },
+      {
+        title: "⌚ Free Smartwatch",
+        desc: "Congratulations! Get a stylish smartwatch free with your smartphone purchase. Limited time only!"
+      },
+      {
+        title: "🎧 Free Bluetooth Earbuds worth ₹1,000/-",
+        desc: "Enjoy your music in style! Get Bluetooth earbuds worth ₹1,000/- free with your new mobile."
+      },
+      {
+        title: "🎒 Combo Pack – Tiffin Box + Water Bottle",
+        desc: "Buy any phone and take home a premium combo pack of a stylish tiffin box and water bottle!"
+      }
     ];
 
-    // Shuffle and pick 3 random offers
-    const shuffled = offers.sort(() => 0.5 - Math.random());
-    const selected = shuffled.slice(0, 3);
+    // Pick one random offer
+    const randomOffer = offers[Math.floor(Math.random() * offers.length)];
 
-    const container = document.getElementById("offerContainer");
-    selected.forEach(o => {
-      const card = document.createElement("div");
-      card.className = "offer-card";
-      card.innerHTML = `<h3>${o.title}</h3><p>${o.desc}</p>`;
-      container.appendChild(card);
-    });
+    // Display it
+    document.querySelector(".offer-title").textContent = randomOffer.title;
+    document.querySelector(".offer-desc").textContent = randomOffer.desc;
   </script>
 
 </body>
