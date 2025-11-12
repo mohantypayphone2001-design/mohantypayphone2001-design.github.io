@@ -1,25 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Offer Claimed - MOHANTY PAY PHONE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Base Styles */
     body {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      background: linear-gradient(to bottom, #ff9800, #ffc107);
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffb300, #ff6f00);
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      font-family: "Poppins", sans-serif;
-      color: #fff;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      color: white;
       text-align: center;
+      overflow: hidden;
     }
 
-    img {
-      width: 300px;
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
       border-radius: 20px;
-      box-shado
+      padding: 40px 25px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: fadeIn 1s ease-in-out;
+      z-index: 2;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 15px;
+      border-radius: 15px;
+      animation: pop 0.8s ease-out;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      font-weight: 400;
+    }
+
+    .btn {
+      background: white;
+      color: #ff6f00;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #ffe0b2;
+      transform: scale(1.05);
+    }
+
+    /* Confetti Animation */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      opacity: 0.9;
+      top: 0;
+      animation: fall 3s linear infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Mobile optimization */
+    @media (max-width: 480px) {
+      h1 { font-size: 1.8rem; }
+      p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://i.ibb.co/dGZt1pV/mohanty-logo.png" alt="MOHANTY PAY PHONE" class="logo">
+    <h1>🎉 Offer Claimed!</h1>
+    <p>A special offer unlocked for you.<br>
+    You earned a <strong>special gift</strong> when you buy any smartphone from <strong>MOHANTY PAY PHONE</strong>.</p>
+    <a href="https://mohantypayphone2001.github.io/" class="btn">Back to Home</a>
+  </div>
+
+  <script>
+    // Confetti Effect
+    for (let i = 0; i < 70; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDuration = 2 + Math.random() * 3 + 's';
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+      confetti.style.width = confetti.style.height = Math.random() * 8 + 5 + 'px';
+      document.body.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
