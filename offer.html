@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎁 Exclusive Offer | Mohanty Pay Phone</title>
+  <title>🎁 Exclusive Offer | Mohanty Pay Phone</title
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -109,6 +109,15 @@
   </footer>
 
   <script>
+  // Check if the user has already claimed an offer
+  if (localStorage.getItem("offerClaimed") === "true") {
+    // Redirect to the thank-you page if they refresh or revisit
+    window.location.href = "https://mohantypayphone2001-design.github.io/thankyou.html";
+  } else {
+    // Mark offer as claimed
+    localStorage.setItem("offerClaimed", "true");
+
+    // Random offer selection logic
     const offers = [
       {
         title: "🎁 Surprise Gift Box worth ₹4,999/-",
@@ -134,7 +143,9 @@
     // Display it
     document.querySelector(".offer-title").textContent = randomOffer.title;
     document.querySelector(".offer-desc").textContent = randomOffer.desc;
-  </script>
+  }
+</script>
+
 
 </body>
 </html>
