@@ -47,4 +47,65 @@
       display: none;
       margin: 20px auto;
       width: 50px; height: 50px;
-      border: 6px solid
+      border: 6px solid #ffe0b2;
+      border-top: 6px solid #ff6600;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    footer {
+      background: #222;
+      color: #fff;
+      padding: 12px;
+      margin-top: 40px;
+      font-size: 13px;
+    }
+  </style>
+
+  <script>
+    function watchFormSubmit() {
+      const iframe = document.getElementById("offerForm");
+      const redirectMsg = document.getElementById("redirectMsg");
+      const spinner = document.getElementById("spinner");
+
+      const iframeWin = iframe.contentWindow;
+      const checkSubmit = setInterval(() => {
+        try {
+          const doc = iframeWin.document;
+          if (doc.querySelector("div.freebirdFormviewerViewResponseConfirmationMessage")) {
+            clearInterval(checkSubmit);
+            redirectMsg.style.display = "block";
+            spinner.style.display = "block";
+            setTimeout(() => {
+              window.location.href = "https://mohantypayphone2001-design.github.io/offer.html";
+            }, 1500);
+          }
+        } catch (e) {
+          // wait silently until iframe loads
+        }
+      }, 800);
+    }
+    window.onload = watchFormSubmit;
+  </script>
+</head>
+<body>
+
+  <header>🎉 Unlock Your Exclusive Offer 🎁</header>
+
+  <div class="form-container">
+    <iframe
+      id="offerForm"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSc1RUvmlYSCaZHffoSuX8kKFkPayU07PV--F3cjbeQfJakNjA/viewform?embedded=true"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+    >Loading…</iframe>
+
+    <div id="spinner" class="spinner"></div>
+    <p id="redirectMsg" class="redirect-msg">✨ Unlocking your special offer... Please wait!</p>
+  </div>
+
+  <footer>© 2025 MOHANTY PAY PHONE | Exclusive Offers for Our Valued Customers</footer>
+
+</body>
+</html>
