@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>🎁 Exclusive Offer | Mohanty Pay Phone</title>
 
-  <!-- styles -->
   <style>
     body {
       font-family: 'Poppins', Arial, sans-serif;
@@ -17,50 +16,56 @@
     header {
       background-color: #ff6600;
       color: #fff;
-      padding: 22px 10px;
+      padding: 24px 10px;
       font-size: 24px;
       font-weight: 700;
     }
     .offer-box {
       background:#fff;
       max-width:520px;
-      margin:38px auto;
-      padding:28px 20px;
+      margin:40px auto;
+      padding:30px 20px;
       border-radius:14px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.12);
-      animation: fadeIn 600ms ease;
+      box-shadow:0 6px 18px rgba(0,0,0,0.15);
+      animation: fadeIn 0.6s ease;
     }
-    @keyframes fadeIn { from {opacity:0; transform:translateY(10px)} to {opacity:1; transform:none} }
-    .offer-title { color:#ff6600; font-size:20px; font-weight:700; margin:6px 0 12px; }
-    .offer-desc { color:#555; font-size:16px; line-height:1.5; margin:0 0 18px; }
-    .urgent { color:#d63031; font-weight:700; margin-top:12px; animation: blink 1.2s infinite; }
-    @keyframes blink { 0%,50%,100% {opacity:1} 25%,75% {opacity:0} }
-    .btn { display:inline-block; background:#ff6600; color:#fff; padding:12px 20px; text-decoration:none; border-radius:10px; font-size:16px; margin-top:12px; transition:transform .18s; }
-    .btn:hover { transform:scale(1.03) }
-    footer { margin-top:36px; padding:12px; background:#222; color:#fff; font-size:13px; }
-
-    /* floating whatsapp */
+    @keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:none;} }
+    .offer-title { color:#ff6600; font-size:22px; font-weight:700; margin-bottom:12px; }
+    .offer-desc { color:#555; font-size:16px; line-height:1.5; margin-bottom:15px; }
+    .urgent { color:red; font-weight:700; font-size:18px; animation: blink 1.2s infinite; }
+    @keyframes blink { 0%,50%,100%{opacity:1;} 25%,75%{opacity:0;} }
+    .btn { display:inline-block; background:#ff6600; color:#fff; padding:14px 22px; border-radius:10px; text-decoration:none; font-size:17px; transition:.3s; }
+    .btn:hover { transform:scale(1.05); background:#ff8a00; }
+    footer { margin-top:40px; background:#222; color:#fff; padding:15px; font-size:14px; }
     .whatsapp-float {
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      width:58px;
-      height:58px;
-      border-radius:50%;
-      background:#25D366;
-      box-shadow:0 6px 18px rgba(0,0,0,0.18);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      transition:transform .18s;
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      z-index: 999;
+      transition: transform 0.3s;
     }
-    .whatsapp-float:hover { transform:scale(1.08) }
-    .whatsapp-float svg { width:28px; height:28px; fill:#fff; }
-
-    @media (max-width:420px){
-      .offer-box { margin:20px 12px; padding:20px; }
-      header { font-size:20px; padding:18px 8px; }
+    .whatsapp-float:hover { transform: scale(1.1); background-color: #1EBE5C; }
+    .offer-id-box {
+      background:#fff3cd;
+      color:#8a6d3b;
+      display:inline-block;
+      margin-top:15px;
+      padding:10px 15px;
+      border-radius:8px;
+      font-weight:600;
+    }
+    @media (max-width:480px){
+      header { font-size:20px; }
+      .offer-box { width:90%; }
     }
   </style>
 </head>
@@ -68,89 +73,83 @@
 
   <header>🎉 Congratulations! You’ve Unlocked a Special Offer 🎁</header>
 
-  <main>
-    <div class="offer-box" id="offerBox" aria-live="polite">
-      <h2 class="offer-title" id="offerTitle">Loading your offer…</h2>
-      <p class="offer-desc" id="offerDesc"></p>
-      <a id="claimButton" class="btn" href="#" role="button">📸 Take Screenshot & Send on WhatsApp</a>
-    </div>
+  <div class="offer-box" id="offerBox">
+    <h2 class="offer-title" id="offerTitle">Loading your offer...</h2>
+    <p class="offer-desc" id="offerDesc"></p>
+    <div class="offer-id-box">🆔 Offer ID: <span id="offerID">Generating...</span></div>
+    <br><br>
+    <a id="claimButton" class="btn" href="#" role="button">📸 Take Screenshot & Send on WhatsApp</a>
+  </div>
 
-    <p class="urgent">⚠️ Offer valid for the next 24 hours only! Hurry up!</p>
-  </main>
+  <p class="urgent">⚠️ Offer valid for the next 24 hours only! Hurry up!</p>
 
-  <!-- floating whatsapp button -->
-  <a id="whatsappFloat" class="whatsapp-float" href="#" target="_blank" aria-label="Contact on WhatsApp">
-    <!-- inline SVG WhatsApp icon (no external fonts needed) -->
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.78 11.78 0 0 0 12 .25C5.48.25.25 5.48.25 12c0 2.12.56 4.18 1.62 6.01L.25 24l6.11-1.59A11.73 11.73 0 0 0 12 23.75c6.52 0 11.75-5.23 11.75-11.75 0-3.13-1.22-6.06-3.23-8.52zM12 21.25c-1.6 0-3.14-.41-4.5-1.18l-.32-.18-3.63.95.97-3.53-.2-.36A9.25 9.25 0 1 1 21.25 12 9.27 9.27 0 0 1 12 21.25zm4.1-6.48c-.22-.12-1.3-.64-1.5-.71-.2-.07-.35-.12-.5.12s-.57.71-.7.86c-.13.15-.26.18-.49.06-.22-.12-.94-.35-1.78-1.1-.66-.59-1.1-1.31-1.23-1.53-.12-.22-.01-.34.09-.45.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.25-.02-.37-.06-.12-.5-1.2-.69-1.65-.18-.44-.36-.38-.5-.39l-.43-.01c-.15 0-.38.06-.58.28-.2.22-.78.76-.78 1.84s.8 2.12.92 2.27c.12.15 1.6 2.45 3.88 3.43 2.28.99 2.28.66 2.69.62.41-.04 1.3-.53 1.48-1.04.19-.51.19-.95.13-1.04-.06-.09-.22-.12-.45-.24z"/></svg>
+  <a href="#" id="whatsappFloat" class="whatsapp-float" aria-label="Contact on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="#fff">
+      <path d="M12 2a10 10 0 0 0-8.94 14.47L2 22l5.68-1.49A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.11-1.13l-.29-.17-3.37.88.9-3.25-.2-.32A8 8 0 1 1 20 12a8 8 0 0 1-8 8z"/><path d="M17.47 14.37c-.29-.15-1.72-.84-1.98-.93-.26-.1-.45-.15-.64.15-.18.29-.74.93-.9 1.12-.16.18-.33.2-.61.07-.29-.15-1.22-.45-2.33-1.42-.86-.75-1.44-1.67-1.61-1.95-.17-.29-.02-.45.13-.6.13-.13.29-.35.42-.52.13-.16.18-.29.27-.48.09-.18.04-.33-.02-.48-.07-.15-.61-1.48-.84-2.04-.22-.53-.45-.46-.61-.47l-.52-.01c-.17 0-.46.06-.7.32-.24.26-.91.88-.91 2.14 0 1.26.93 2.47 1.06 2.64.13.17 1.82 2.78 4.4 3.89 2.59 1.11 2.59.74 3.06.7.47-.04 1.47-.59 1.68-1.16.21-.57.21-1.04.15-1.13-.06-.09-.23-.15-.52-.3z"/>
+    </svg>
   </a>
 
-  <footer>
-    © 2025 Mohanty Pay Phone | Show this page screenshot in-store to claim your reward.
-  </footer>
+  <footer>© 2025 Mohanty Pay Phone | Show this page screenshot in-store to claim your reward.</footer>
 
-  <!-- logic: show 1 random offer once, prevent revisit using localStorage -->
   <script>
-    (function () {
-      // target thank-you / already-claimed page
-      var alreadyClaimedUrl = "https://mohantypayphone2001-design.github.io/thankyou.html";
-      var whatsappNumber = "919040404020"; // your number (without +)
-      var whatsappMessage = encodeURIComponent("Hi I have unlocked my special offer and want to claim it!");
+  (function () {
+    const alreadyClaimedUrl = "https://mohantypayphone2001-design.github.io/thankyou.html";
+    const whatsappNumber = "919040404020";
+    const whatsappBaseMsg = "Hi! I have unlocked my special offer and want to claim it. My Offer ID is ";
 
-      try {
-        // if the visitor already claimed (localStorage), redirect immediately
-        if (localStorage.getItem("mpp_offerClaimed") === "true") {
-          // small delay so it doesn't feel abrupt
-          window.location.replace(alreadyClaimedUrl);
-          return;
-        }
-      } catch (err) {
-        // if localStorage blocked by browser, we still proceed (best-effort)
-        console.warn("localStorage unavailable:", err);
+    // Function to generate Offer ID
+    function generateOfferID() {
+      const prefix = "MP-";
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      let id = "";
+      for (let i = 0; i < 6; i++) id += chars.charAt(Math.floor(Math.random() * chars.length));
+      return prefix + id;
+    }
+
+    // Prevent revisit if already claimed
+    if (localStorage.getItem("mpp_offerClaimed") === "true") {
+      window.location.replace(alreadyClaimedUrl);
+      return;
+    }
+
+    localStorage.setItem("mpp_offerClaimed", "true");
+
+    // Generate or get Offer ID
+    let offerID = localStorage.getItem("mpp_offerID");
+    if (!offerID) {
+      offerID = generateOfferID();
+      localStorage.setItem("mpp_offerID", offerID);
+    }
+
+    // Offer list
+    const offers = [
+      {
+        title: "🎁 Surprise Gift Box worth ₹4,999/-",
+        desc: "Buy any smartphone above ₹20,000/- and receive a luxury surprise gift worth ₹4,999/- absolutely free!"
+      },
+      {
+        title: "⌚ Free Smartwatch",
+        desc: "Get a stylish smartwatch absolutely free with your new smartphone purchase!"
+      },
+      {
+        title: "🎧 Free Bluetooth Earbuds worth ₹1,000/-",
+        desc: "Enjoy your music in style — get Bluetooth earbuds worth ₹1,000/- free with your new mobile!"
+      },
+      {
+        title: "🎒 Combo Pack – Tiffin Box + Water Bottle",
+        desc: "Take home a premium combo pack of a stylish tiffin box and water bottle with your phone purchase!"
       }
+    ];
 
-      // mark as claimed (so refresh/return will be blocked)
-      try { localStorage.setItem("mpp_offerClaimed", "true"); } catch (e) { console.warn("localStorage set failed", e); }
+    // Pick a random offer
+    const picked = offers[Math.floor(Math.random() * offers.length)];
 
-      // offers list (you provided)
-      var offers = [
-        {
-          title: "🎁 Surprise Gift Box worth ₹4,999/-",
-          desc: "You’ve unlocked an exclusive reward! Buy any smartphone above ₹20,000/- and receive a luxury surprise gift worth ₹4,999/- absolutely free!"
-        },
-        {
-          title: "⌚ Free Smartwatch",
-          desc: "Congratulations! Get a stylish smartwatch free with your smartphone purchase. Limited time only!"
-        },
-        {
-          title: "🎧 Free Bluetooth Earbuds worth ₹1,000/-",
-          desc: "Enjoy your music in style! Get Bluetooth earbuds worth ₹1,000/- free with your new mobile."
-        },
-        {
-          title: "🎒 Combo Pack – Tiffin Box + Water Bottle",
-          desc: "Buy any phone and take home a premium combo pack of a stylish tiffin box and water bottle!"
-        }
-      ];
+    // Update DOM
+    document.getElementById("offerTitle").textContent = picked.title;
+    document.getElementById("offerDesc").textContent = picked.desc;
+    document.getElementById("offerID").textContent = offerID;
 
-      // choose one random offer
-      var picked = offers[Math.floor(Math.random() * offers.length)];
-
-      // write to DOM
-      var titleEl = document.getElementById("offerTitle");
-      var descEl = document.getElementById("offerDesc");
-      var claimButton = document.getElementById("claimButton");
-      var whatsappFloat = document.getElementById("whatsappFloat");
-
-      if (titleEl) titleEl.textContent = picked.title;
-      if (descEl) descEl.textContent = picked.desc;
-
-      // set whatsapp links
-      var waUrl = "https://wa.me/" + whatsappNumber + "?text=" + whatsappMessage;
-      if (claimButton) claimButton.setAttribute("href", waUrl);
-      if (whatsappFloat) whatsappFloat.setAttribute("href", waUrl);
-
-      // Accessibility: focus on the offer title for screen readers
-      if (titleEl) titleEl.focus && titleEl.focus();
-    })();
-  </script>
-</body>
-</html>
+    // WhatsApp link with Offer ID
+    const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappBaseMsg + offerID)}`;
+    document.getElementById("claimButton").href = waUrl;
+    document.getElementById("whatsappFloat").hr
