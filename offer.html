@@ -30,3 +30,111 @@
       width: 90%;
       max-width: 500px;
       padding: 30px 20px;
+      transition: 0.3s;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .offer-title {
+      color: #ff6600;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .offer-desc {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .urgent {
+      color: red;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 10px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+
+    .btn {
+      background-color: #ff6600;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 18px;
+      display: inline-block;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ff8800;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 40px;
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>🎉 Congratulations! You’ve Unlocked a Special Offer 🎁</header>
+
+  <div class="offer-box" id="offerBox">
+    <h2 class="offer-title">Loading your offer...</h2>
+    <p class="offer-desc"></p>
+  </div>
+
+  <p class="urgent">⚠️ Offer valid for the next 24 hours only! Hurry up!</p>
+
+  <a href="https://wa.me/919040404020?text=Hi%20I%20have%20unlocked%20my%20special%20offer%20and%20want%20to%20claim%20it!" class="btn">📸 Take Screenshot & Send on WhatsApp</a>
+
+  <footer>
+    © 2025 Mohanty Pay Phone | Show this page screenshot in-store to claim your reward.
+  </footer>
+
+  <script>
+    const offers = [
+      {
+        title: "🎁 Surprise Gift Box worth ₹4,999/-",
+        desc: "You’ve unlocked an exclusive reward! Buy any smartphone above ₹20,000/- and receive a luxury surprise gift worth ₹4,999/- absolutely free!"
+      },
+      {
+        title: "⌚ Free Smartwatch",
+        desc: "Congratulations! Get a stylish smartwatch free with your smartphone purchase. Limited time only!"
+      },
+      {
+        title: "🎧 Free Bluetooth Earbuds worth ₹1,000/-",
+        desc: "Enjoy your music in style! Get Bluetooth earbuds worth ₹1,000/- free with your new mobile."
+      },
+      {
+        title: "🎒 Combo Pack – Tiffin Box + Water Bottle",
+        desc: "Buy any phone and take home a premium combo pack of a stylish tiffin box and water bottle!"
+      }
+    ];
+
+    // Pick one random offer
+    const randomOffer = offers[Math.floor(Math.random() * offers.length)];
+
+    // Display it
+    document.querySelector(".offer-title").textContent = randomOffer.title;
+    document.querySelector(".offer-desc").textContent = randomOffer.desc;
+  </script>
+
+</body>
+</html>
